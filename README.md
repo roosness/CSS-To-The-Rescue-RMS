@@ -8,4 +8,4 @@ Aangepast op feedback:
 - max 3 selectoren 
 - font-size: 1em weggehaald
 
-Nieuwe technieken (11 februari)
+

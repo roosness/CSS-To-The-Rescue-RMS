@@ -267,37 +267,42 @@ body > main > #photo-albums {
 	flex-direction: column;
 }
 
+
+
 #profile-picture  header h2 {
 	margin: 0 0;
 }
 #profile-picture  header h3 {
 	font-weight: lighter;
-	margin: 0 0;
+	margin:.2rem 0;
 	font-size: .8em;
+	background-color: #27ae60;
+	padding:.5rem;
+	color:white;
 }
-#profile-picture div:nth-of-type(2) {
+
+#profile-picture  div:nth-of-type(2) {
 	text-align: center;
 	order:-1;
+	
 }
-
-#profile-picture .filter-effects {
-	display:flex;
-	justify-content: center;
-	flex-wrap: wrap;
-}
-
 #profile-picture .filter-effects header {
-	flex: 5 100%;
 	text-align: center;
-	justify-content: space-between;
+	
 }
 
 #profile-picture div:first-of-type {
 	border-bottom:1px solid #EDEDED;
-	margin-bottom: 1rem
-}
+	margin-bottom: 1rem;
 
-#profile-picture div  figure {
+}
+#profile-picture .current-profile-picture a {
+	width:100%;
+	height:100%;
+	padding: 0 0;
+	margin: 0 0;
+}
+#profile-picture .current-profile-picture {
 	
 	overflow: hidden;
 	border-radius: 100%;
@@ -311,26 +316,56 @@ body > main > #photo-albums {
 	width:100%;
 }
 
-#profile-picture .filter-effects figure {
-	display:inline-block;
-	
-	flex: 1 10%;
-	max-height: 8em;
-	max-width: 8em;
-	padding: 0 0;
-	margin: .2rem;
+
+/*target content lightbox*/
+
+.filter-effects #target-content {
+	opacity:0;
 	box-sizing: border-box;
-	overflow:hidden;
-}
-.filter-effects figure figcaption {
-	font-size: .7em;
+	background: white;
+	z-index: 9;
+	display:flex;
+	flex-wrap: nowrap;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	box-sizing: border-box;
 	text-align: center;
-} 
-#profile-picture .filter-effects figure img {
+
+}
+.filter-effects #target-content figure {
+	border:1px solid white;
+	flex: 20%;
+	padding: 0 0;
+	margin:1em;
+	max-width: 100%;
+	overflow:hidden;
+	height:100%;
+	text-align: center;
+}
+
+.filter-effects #target-content img {
 	width:100%;
 }
+#target-content:target {
+	opacity: 1;
+	box-shadow: 0 0 0 50vmax rgba(0,0,0,.8);
+	pointer-events:all;
+}
+#target-content:target .clickAway {
+	
+  height:100vw;
+  z-index: 10;
+  right:0;
+  top:-10px;
+  width:100%;
+	height:100%;
+	position:absolute;
+box-sizing: border-box;
+  
 
-
+}
 /*------------------------------------------------ per foto CSS filter*/
 #profile-picture .effect-01 img {
 	-webkit-filter: brightness(2);
@@ -355,9 +390,7 @@ body > main > #photo-albums {
 	 -webkit-filter: invert(.9);
   filter: invert(.9);
 }
-.effect-01 img~ img {
-	border:5px solid red !important; 
-}
+
 /*kleine box*/
 
 main > article:first-of-type {
